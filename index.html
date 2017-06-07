@@ -8,105 +8,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="rsat.ui.smTable.js"></script>
     <script>
-        //inputs
-        // App Name
-        // Controller Name
-
-        var app = angular.module('myApp', ['ngRoute']);
+        var app = angular.module('myApp', ['ngRoute', 'rsat.ui']);
         app.controller('myController', function ($scope) {
-            $scope.title = "First App";
-            $scope.appName = 'ajApp';
-            $scope.ctrlName = 'ajController';
-            $scope.tableData = {
-                skip: 0,
-                limit: 3,
-                total: 9,
-                data: [
-                    { name: 'Rohith', company: 'Edgeverve', role: 'MTS' },
-                    { name: 'Varun', company: 'Edgeverve', role: 'MTS' },
-                    { name: 'Mom', company: 'Edgeverve', role: 'MTS' }
-                ]
-            }
-            $scope.initTable = function () {
-                $scope.totalPages = $scope.tableData.total / $scope.tableData.limit;
-                $scope.currentPage = 0;
-                if ($scope.tableData.skip > 0) {
-                    $scope.currentPage = ($scope.tableData.skip / $scope.tableData.total) * $scope.tableData.limit;
-                }
-                $scope.currentPage += 1;
-                $scope.currentPage = Math.floor($scope.currentPage)
-
-
-            }
-            $scope.initTable();
-            $scope.goToSkip= function(newSkip){
-                alert("new skip " + newSkip);
-            }
-            $scope.pageChange=function(){
-                 var newSkip =($scope.currentPage/$scope.tableData.limit)*$scope.tableData.total  ;
-                 $scope.goToSkip(newSkip);
-                
-            }
-            $scope.goToNext = function(){
-                var newSkip = $scope.tableData.skip + $scope.tableData.limit;
-                $scope.goToSkip(newSkip);
-            }
-            $scope.goToPrevious = function(){
-                var newSkip = $scope.tableData.skip - $scope.tableData.limit;
-                $scope.goToSkip(newSkip);
-            }
-
-
+            $scope.allData = [
+                { name: 'Rohith', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Varun', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Mom', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Rohith1', company: '1Edgeverve', role: 'MTS' },
+                { name: 'Varun1', company: '2Edgeverve', role: 'MTS' },
+                { name: 'Mom1', company: '3Edgeverve', role: 'MTS' },
+                { name: 'Rohith2', company: '1Edgeverve', role: 'MTS' },
+                { name: 'Varun2', company: '2Edgeverve', role: 'MTS' },
+                { name: 'Mom2', company: '3Edgeverve', role: 'MTS' }
+            ]
         });
-        app.directive('pages', function () {
-            return {
-                restrict: 'AEC',
-                transclude: true,
-                scope: { title: '@' },
-                link: function (scope, element, attrs) {
-                },
-                template: '<div>'
-                + '<h3>{{title}}</h3>'
-                + '<p ng-transclude></p>'
-                + '</div>',
-
-            };
-        })
     </script>
 </head>
 
 <body>
 
-    <div style="width:100%;float:left" ng-app="myApp" ng-controller="myController">
-        <h3>{{title}}</h3>
+    <div style="width:500px;padding:10px" ng-app="myApp" ng-controller="myController">
 
-
-
-        <table class="mdl-data-table mdl-shadow--2dp">
-            <thead>
-                <tr>
-                    <th ng-repeat="(key,value) in tableData.data[0]">{{key}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="row in tableData.data track by $index">
-                    <td ng-repeat="(key,value) in row">{{value}}</td>
-                </tr>
-
-            </tbody>
-        </table>
-        <h4>
-            Page
-
-           <input type="text" ng-value="{{currentPage}}" ng-model="currentPage" ng-change="pageChange()"/>
-
-        </h4>
-
-        <button ng-click="goToNext()">next >></button>
-        <button ng-click="goToPrevious()"><< Previosu </button>
-
-        <h3>showing {{tableData.skip + 1}} - {{(tableData.skip + tableData.data.length)}} of {{tableData.total}}</h3>
+        <sm-table-cp data="allData" limit="6" sortable="true"></sm-table-cp>
 
     </div>
 
