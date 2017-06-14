@@ -1,0 +1,28 @@
+{
+  "name": "smarttable",
+  "version": "1.0.0",
+  "description": "A Smart HTML Table Component for Angular js applications",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohithsathya/SmartTable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohithsathya/SmartTable/issues"
+  },
+  "homepage": "https://github.com/rohithsathya/SmartTable#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-minify": "^1.0.0"
+  }
+}

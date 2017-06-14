@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script src="../dist/rsat.ui.icons.js"></script>
+    <script src="../dist/rsat.ui.smTable.js"></script>
+    <script>
+        var app = angular.module('myApp', ['rsat.ui']);
+        app.controller('myController', function ($scope) {
+
+            $scope.strokeColor = "black";
+            $scope.iconSize = 24;
+            $scope.size = 12;
+
+            $scope.allData = [
+                { name: 'Rohith', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Varun', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Mom', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Rohith1', company: '1Edgeverve', role: 'MTS' },
+                { name: 'Varun1', company: '2Edgeverve', role: 'MTS' },
+                { name: 'Mom1', company: '3Edgeverve', role: 'MTS' },
+                { name: 'Rohith2', company: '1Edgeverve', role: 'MTS' },
+                { name: 'Varun2', company: '2Edgeverve', role: 'MTS' },
+                { name: 'Mom2', company: '3Edgeverve', role: 'MTS' }
+            ]
+            $scope.serverData = [
+                { name: 'Rohith', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Varun', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Mom', company: 'Edgeverve', role: 'MTS' }
+                ];
+            $scope.gotoNext =function(){
+                console.log("Goto next");
+            }
+            $scope.gotoPrev =function(){
+                console.log("Goto Previous");
+            }
+            $scope.gotoSpecificPage =function(pageNo){
+                console.log("Goto page " + pageNo);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <style>
+        .upArrow{
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAlklEQVR4Ae3NhRHDUAwEUVUVqCyMHecXEGavSSMNee6Cpn3mnKZpl9drEIAAAQIErG3qBsY275s/3hKFxB/A/Ol2ft8nf3hFSDQDk0f+0o/Y2wUEAOYBOAgAjryTIDBFPkIAYD5CAGA+QgCYWmE+SHwB5nOI13/mkwj8Qz5A4IV8KsF8PsF8lGA+nUA+n0A+n/DnNU27AqFWCc2JzhGTAAAAAElFTkSuQmCC);
+            background-repeat: no-repeat;
+            background-size:contain;
+            height: 12px;
+            width: 12px;
+        }
+    </style>
+
+    <div style="width:500px;padding:10px" ng-app="myApp" ng-controller="myController">
+
+        <sm-table-cp data="allData" limit="6" sortable="true"></sm-table-cp>
+        <sm-table-sp data="serverData" 
+                     limit="3" 
+                     skip="0" 
+                     total="9" 
+                     sortable="true"
+                     onNext="gotoNext()"
+                     onprev="gotoPrev()"
+                     onPageChange="gotoSpecificPage(pageNo)"
+                     >
+                     
+                     </sm-table-sp>
+
+    </div>
+
+
+
+</body>
+
+</html>
