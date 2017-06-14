@@ -45,16 +45,7 @@
 </head>
 
 <body>
-    <style>
-        .upArrow{
-            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAlklEQVR4Ae3NhRHDUAwEUVUVqCyMHecXEGavSSMNee6Cpn3mnKZpl9drEIAAAQIErG3qBsY275s/3hKFxB/A/Ol2ft8nf3hFSDQDk0f+0o/Y2wUEAOYBOAgAjryTIDBFPkIAYD5CAGA+QgCYWmE+SHwB5nOI13/mkwj8Qz5A4IV8KsF8PsF8lGA+nUA+n0A+n/DnNU27AqFWCc2JzhGTAAAAAElFTkSuQmCC);
-            background-repeat: no-repeat;
-            background-size:contain;
-            height: 12px;
-            width: 12px;
-        }
-    </style>
-
+    
     <div style="width:500px;padding:10px" ng-app="myApp" ng-controller="myController">
 
         <sm-table-cp data="allData" limit="6" sortable="true"></sm-table-cp>
@@ -65,10 +56,8 @@
                      sortable="true"
                      onNext="gotoNext()"
                      onprev="gotoPrev()"
-                     onPageChange="gotoSpecificPage(pageNo)"
-                     >
-                     
-                     </sm-table-sp>
+                     onPageChange="gotoSpecificPage(pageNo)" >
+        </sm-table-sp>
 
     </div>
 
