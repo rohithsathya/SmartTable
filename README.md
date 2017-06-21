@@ -3,11 +3,12 @@ A SmaTable Component for Angular js applications, with automatic pagination and 
 It has support for both client side and server side pagination.
 
 Live Demo. [here](http://google.com)
+
 Example : Complete example App Located at example folder
 ## Dependencies
-Angular Js
-rsat Icons
-Material design light - A material design css library by google
+* Angular Js
+* rsat Icons
+* Material design light - A material design css library by google
 
 ## Installation
 Installation of smart table is very easy as it does not depends on lots of modules, it is simple and stright forward.Please follow the ssteps below to get started
