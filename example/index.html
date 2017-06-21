@@ -10,26 +10,21 @@
     <script>
         var app = angular.module('myApp', ['rsat.ui']);
         app.controller('myController', function ($scope) {
-
-            $scope.strokeColor = "black";
-            $scope.iconSize = 24;
-            $scope.size = 12;
-
             $scope.allData = [
-                { name: 'Rohith', company: 'Edgeverve', role: 'MTS' },
-                { name: 'Varun', company: 'Edgeverve', role: 'MTS' },
-                { name: 'Mom', company: 'Edgeverve', role: 'MTS' },
-                { name: 'Rohith1', company: '1Edgeverve', role: 'MTS' },
-                { name: 'Varun1', company: '2Edgeverve', role: 'MTS' },
-                { name: 'Mom1', company: '3Edgeverve', role: 'MTS' },
-                { name: 'Rohith2', company: '1Edgeverve', role: 'MTS' },
-                { name: 'Varun2', company: '2Edgeverve', role: 'MTS' },
-                { name: 'Mom2', company: '3Edgeverve', role: 'MTS' }
+                { name: 'Person1', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Person2', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Person3', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Person4', company: '1Edgeverve', role: 'MTS' },
+                { name: 'Person5', company: '2Edgeverve', role: 'MTS' },
+                { name: 'Person6', company: '3Edgeverve', role: 'MTS' },
+                { name: 'Person7', company: '1Edgeverve', role: 'MTS' },
+                { name: 'Person8', company: '2Edgeverve', role: 'MTS' },
+                { name: 'Person9', company: '3Edgeverve', role: 'MTS' }
             ]
             $scope.serverData = [
-                { name: 'Rohith', company: 'Edgeverve', role: 'MTS' },
-                { name: 'Varun', company: 'Edgeverve', role: 'MTS' },
-                { name: 'Mom', company: 'Edgeverve', role: 'MTS' }
+                { name: 'Person1', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Person2', company: 'Edgeverve', role: 'MTS' },
+                { name: 'Person3', company: 'Edgeverve', role: 'MTS' }
                 ];
             $scope.gotoNext =function(){
                 console.log("Goto next");
@@ -48,7 +43,7 @@
     
     <div style="width:500px;padding:10px" ng-app="myApp" ng-controller="myController">
 
-        <sm-table-cp data="allData" limit="6" sortable="true"></sm-table-cp>
+        <sm-table-cp data="allData" limit="3" sortable="true"></sm-table-cp>
         <sm-table-sp data="serverData" 
                      limit="3" 
                      skip="0" 
