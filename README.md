@@ -1,8 +1,8 @@
 # SmTable
-A SmaTable Component for Angular js applications, with automatic pagination and column sorting. It is very simple and minimalistic in design, all you have to do is just give the data and html table with material design theme will magically appear in your application.
+A SmTable Component for Angular js applications, with automatic pagination and column sorting. It is very simple and minimalistic in design, all you have to do is just give the data and html table with material design theme will magically appear in your application.
 It has support for both client side and server side pagination.
 
-Live Demo. [here](http://google.com)
+Live Demo. [here](https://rohithsathya.github.io/SmartTable/example/)
 
 Example : Complete example App Located at example folder
 ## Dependencies

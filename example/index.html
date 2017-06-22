@@ -5,8 +5,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script src="../dist/rsat.ui.icons.js"></script>
-    <script src="../dist/rsat.ui.smTable.js"></script>
+    <script src="https://rohithsathya.github.io/SmartTable/dist/rsat.ui.icons.js"></script>
+    <script src="https://rohithsathya.github.io/SmartTable/dist/rsat.ui.smTable.js"></script>
     <script>
         var app = angular.module('myApp', ['rsat.ui']);
         app.controller('myController', function ($scope) {
@@ -39,12 +39,22 @@
     </script>
 </head>
 
-<body>
-    
-    <div style="width:500px;padding:10px" ng-app="myApp" ng-controller="myController">
+<body style="width:600px;padding:10px;margin:auto" ng-app="myApp" ng-controller="myController">
 
+    <a href="https://plnkr.co/edit/a0iKoS?p=preview" target="_blank">
+    <button> Edit This In Plunker</button>
+    </a>
+    
+    <div style="padding:10px;margin:auto">
+        <h3>Table with client side pagination</h3>
         <sm-table-cp data="allData" limit="3" sortable="true"></sm-table-cp>
-        <sm-table-sp data="serverData" 
+         
+
+    </div>
+    <div style="padding:10px;margin:auto">
+        <h3>Table with Server side pagination</h3>
+      
+         <sm-table-sp data="serverData" 
                      limit="3" 
                      skip="0" 
                      total="9" 
@@ -53,7 +63,6 @@
                      onprev="gotoPrev()"
                      onPageChange="gotoSpecificPage(pageNo)" >
         </sm-table-sp>
-
     </div>
 
 
