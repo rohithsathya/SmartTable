@@ -8,7 +8,7 @@ smTableApp.directive('smTableCp', function () {
             limit: '=',
             sortable: '='
         },
-        controller: function ($scope, $element, $attrs) {
+        controller: ['$scope', '$element', '$attrs',function($scope,$element,$attrs) {
             $scope.pageNumbers = [];
             $scope.currentPage = 1;
             $scope.orderbyField = '';
@@ -53,51 +53,8 @@ smTableApp.directive('smTableCp', function () {
             }
             $scope.initTable();
 
-        },
-        template: [
-            '<table class="mdl-data-table mdl-shadow--2dp" style="width:100%">',
-            '<thead>',
-            '<tr>',
-            '<th ng-click="orderbyCol(key)" ng-repeat="(key,value) in data[0]">',
-            '{{key}}',
-            ' <span ng-show="canShowThisColSortIcon(key)">',
-            '<span ng-show="!reverseSort">',
-            '<icon-arrow-upward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-upward>',
-            '</span>',
-            '<span ng-show="reverseSort">',
-            '<icon-arrow-downward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-downward>',
-            ' </span>',
-            ' </span>',
-            '</th>',
-            '</tr>',
-            ' </thead>',
-            '<tfoot>',
-            '<tr>',
-            '<th colspan="100%">',
-            '<div style="float:left">',
-            'Page : ',
-            '<select ng-options="page for page in pageNumbers" ng-model="currentPage" ng-change="pageChange()" ></select>',
-            ' </div>',
-            '  {{skip +1}}-{{skip+tableData.length}} of {{data.length}}',
-            '<button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoPrevious()" ng-disabled="currentPage <= 1">',
-            '<icon-arrow-left></icon-arrow-left>',
-            ' </button>',
-            '  <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoNext()" ng-disabled="currentPage >= totalPages">',
-            '<icon-arrow-right></icon-arrow-right>',
-            ' </button>',
-
-            '</th>',
-            '  </tr>',
-
-            '</tfoot>',
-            ' <tbody>',
-            '<tr ng-repeat="row in tableData | orderBy:orderbyField : reverseSort track by $index">',
-            '<td ng-repeat="(key,value) in row">{{value}}</td>',
-            '  </tr>',
-
-            '  </tbody>',
-            '  </table>'
-        ].join('')
+        }],
+        templateUrl:'templateCP.html',
     }
 
 });
@@ -115,7 +72,7 @@ smTableApp.directive('smTableSp', function () {
             onpagechange:'&',
             sortable: '='
         },
-        controller: function ($scope, $element, $attrs) {
+        controller:['$scope', '$element', '$attrs',function ($scope, $element, $attrs) {
             $scope.pageNumbers = [];
             $scope.orderbyField = '';
             $scope.reverseSort = false;
@@ -153,51 +110,8 @@ smTableApp.directive('smTableSp', function () {
             }
             $scope.initTable();
 
-        },
-        template: [
-            ' <table class="mdl-data-table mdl-shadow--2dp" style="width:100%">',
-            '<thead>',
-            '<tr>',
-            '<th ng-click="orderbyCol(key)" ng-repeat="(key,value) in data[0]">',
-            '{{key}}',
-            ' <span ng-show="canShowThisColSortIcon(key)">',
-            '<span ng-show="!reverseSort">',
-            '<icon-arrow-upward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-upward>',
-            '</span>',
-            '<span ng-show="reverseSort">',
-            '<icon-arrow-downward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-downward>',
-            ' </span>',
-            ' </span>',
-            '</th>',
-            '</tr>',
-            ' </thead>',
-            '<tfoot>',
-            '<tr>',
-            '<th colspan="100%">',
-            '<div style="float:left">',
-            'Page : ',
-            '<select ng-options="page for page in pageNumbers" ng-model="currentPage" ng-change="pageChange()" ></select>',
-            ' </div>',
-            '  {{skip +1}}-{{skip+data.length}} of {{total}}',
-            '<button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoPrevious()" ng-disabled="skip <= 0">',
-            '<icon-arrow-left></icon-arrow-left>',
-            ' </button>',
-            '  <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoNext()" ng-disabled="(skip+data.length) > total">',
-            '<icon-arrow-right></icon-arrow-right>',
-            ' </button>',
-
-            '</th>',
-            '  </tr>',
-
-            '</tfoot>',
-            ' <tbody>',
-            '<tr ng-repeat="row in data | orderBy:orderbyField : reverseSort track by $index">',
-            '<td ng-repeat="(key,value) in row">{{value}}</td>',
-            '  </tr>',
-
-            '  </tbody>',
-            '  </table>'
-        ].join('')
+        }],
+        templateUrl: 'templateSP.html'
     }
 
 });
