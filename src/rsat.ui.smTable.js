@@ -1,6 +1,24 @@
+(function(orig) {
+    if(!angular.modules){
+        console.log(angular.modules);
+        angular.modules = [];
+    }
+    
+    angular.module = function() {
+        if (arguments.length > 1) {
+            angular.modules.push(arguments[0]);
+        }
+        return orig.apply(null, arguments);
+    }
+})(angular.module);
+//check if the required module is available or not
+//this module has dependency on icons so check if the icons module is laoded if not throw error
+if(angular.modules.indexOf('rsat.icons') < 0){
+    console.warn("smTable Module dependent on rsat.icons module, please load rsat.ui.icons.js file before loading smTable");
+}
+
 var smTableApp = angular.module('rsat.ui', ['rsat.icons']);
 smTableApp.directive('smTableCp', function () {
-
     return {
         restrict: 'E',
         scope: {
@@ -115,3 +133,26 @@ smTableApp.directive('smTableSp', function () {
     }
 
 });
+
+//adding css
+var sheet = (function() {
+    var styles = document.getElementsByTagName("style");
+    var style;
+    if(styles == undefined || styles.length <1){
+         style = document.createElement("style");
+    }else{
+        style = styles[0];
+    }
+	style.appendChild(document.createTextNode(""));
+	document.head.appendChild(style);
+	return style.sheet;
+})();
+sheet.insertRule(".rsat-data-table {position: relative;border: 1px solid rgba(0, 0, 0, .12);border-collapse: collapse;white-space: nowrap;font-size: 13px;background-color: #fff;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)}", 1);
+sheet.insertRule(".rsat-data-table thead { padding-bottom: 3px}", 1);
+sheet.insertRule(".rsat-data-table tbody tr {position: relative; height: 48px;transition-duration: .28s;transition-timing-function: cubic-bezier(.4, 0, .2, 1);transition-property: background-color}", 1);
+sheet.insertRule(".rsat-data-table tbody tr:hover { background-color: #eee}", 1);
+sheet.insertRule(".rsat-data-table td:first-of-type,.rsat-data-table th:first-of-type {padding-left: 24px}", 1);
+sheet.insertRule(".rsat-data-table td:last-of-type,.rsat-data-table th:last-of-type {padding-right: 24px}", 1);
+sheet.insertRule(".rsat-data-table td {position: relative;height: 48px;border-top: 1px solid rgba(0, 0, 0, .12);border-bottom: 1px solid rgba(0, 0, 0, .12);padding: 12px 18px;box-sizing: border-box}", 1);
+sheet.insertRule(".rsat-data-table th {position: relative;vertical-align: bottom;text-overflow: ellipsis;font-weight: 700;line-height: 24px;letter-spacing: 0;height: 48px;font-size: 12px;color: rgba(0, 0, 0, .54);padding: 0 18px 12px 18px;padding-bottom: 8px;box-sizing: border-box}", 1);
+
