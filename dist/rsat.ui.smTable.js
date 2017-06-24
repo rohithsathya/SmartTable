@@ -1,6 +1,5 @@
 (function(orig) {
     if(!angular.modules){
-        console.log(angular.modules);
         angular.modules = [];
     }
     
@@ -11,21 +10,11 @@
         return orig.apply(null, arguments);
     }
 })(angular.module);
-
-console.log("PHmG123DG1233..!!!");
-console.log("modules laodedG..!!!");
-console.log("PHmG123DG1233...!!!");
-console.log(angular.modules);
-
-
-
 //check if the required module is available or not
 //this module has dependency on icons so check if the icons module is laoded if not throw error
-
 if(angular.modules.indexOf('rsat.icons') < 0){
     console.warn("smTable Module dependent on rsat.icons module, please load rsat.ui.icons.js file before loading smTable");
 }
-
 var smTableApp = angular.module('rsat.ui', ['rsat.icons']);
 smTableApp.directive('smTableCp', function () {
     return {

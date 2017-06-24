@@ -1,6 +1,5 @@
 (function(orig) {
     if(!angular.modules){
-        console.log(angular.modules);
         angular.modules = [];
     }
     
@@ -16,7 +15,6 @@
 if(angular.modules.indexOf('rsat.icons') < 0){
     console.warn("smTable Module dependent on rsat.icons module, please load rsat.ui.icons.js file before loading smTable");
 }
-
 var smTableApp = angular.module('rsat.ui', ['rsat.icons']);
 smTableApp.directive('smTableCp', function () {
     return {
