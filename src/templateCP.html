@@ -1,4 +1,4 @@
-<table class="rsat-data-table" style="width:100%">
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width:100%">
     <thead>
         <tr>
             <th ng-click="orderbyCol(key)" ng-repeat="(key,value) in data[0]">
@@ -22,11 +22,13 @@
                     <select ng-options="page for page in pageNumbers" ng-model="currentPage" ng-change="pageChange()"></select>
                 </div>
                 {{skip +1}}-{{skip+tableData.length}} of {{data.length}}
-                <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoPrevious()" ng-disabled="currentPage <= 1">
+
+                <button rsat-Button-icon ng-click="gotoPrevious()" ng-disabled="currentPage <= 1">
             <icon-arrow-left></icon-arrow-left>
              </button>
-                <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoNext()" ng-disabled="currentPage >= totalPages">
-            <icon-arrow-right></icon-arrow-right>
+
+             <button rsat-Button-icon ng-click="gotoNext()" ng-disabled="currentPage >= totalPages">
+                 <icon-arrow-right></icon-arrow-right>
              </button>
 
             </th>

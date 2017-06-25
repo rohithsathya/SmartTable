@@ -15,7 +15,10 @@
 if(angular.modules.indexOf('rsat.icons') < 0){
     console.warn("smTable Module dependent on rsat.icons module, please load rsat.ui.icons.js file before loading smTable");
 }
-var smTableApp = angular.module('rsat.ui', ['rsat.icons']);
+if(angular.modules.indexOf('rsat.ui.elements') < 0){
+    console.warn("smTable Module dependent on rsat.ui.elements module, please load rsat.ui.icons.js file before loading smTable");
+}
+var smTableApp = angular.module('rsat.ui', ['rsat.icons','rsat.ui.elements']);
 smTableApp.directive('smTableCp', function () {
     return {
         restrict: 'E',
@@ -131,7 +134,6 @@ smTableApp.directive('smTableSp', function () {
     }
 
 });
-
 //adding css
 var sheet = (function() {
     var styles = document.getElementsByTagName("style");

@@ -15,7 +15,10 @@
 if(angular.modules.indexOf('rsat.icons') < 0){
     console.warn("smTable Module dependent on rsat.icons module, please load rsat.ui.icons.js file before loading smTable");
 }
-var smTableApp = angular.module('rsat.ui', ['rsat.icons']);
+if(angular.modules.indexOf('rsat.ui.elements') < 0){
+    console.warn("smTable Module dependent on rsat.ui.elements module, please load rsat.ui.icons.js file before loading smTable");
+}
+var smTableApp = angular.module('rsat.ui', ['rsat.icons','rsat.ui.elements']);
 smTableApp.directive('smTableCp', function () {
     return {
         restrict: 'E',
@@ -70,7 +73,7 @@ smTableApp.directive('smTableCp', function () {
             $scope.initTable();
 
         }],
-        template:'<table class="rsat-data-table" style="width:100%"><thead><tr><th ng-click="orderbyCol(key)" ng-repeat="(key,value) in data[0]">{{key}} <span ng-show="canShowThisColSortIcon(key)"><span ng-show="!reverseSort"><icon-arrow-upward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-upward></span> <span ng-show="reverseSort"><icon-arrow-downward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-downward></span></span></th></tr></thead><tfoot><tr><th colspan="100%" style="text-align:right"><div style="float:left">Page :<select ng-options="page for page in pageNumbers" ng-model="currentPage" ng-change="pageChange()"></select></div>{{skip +1}}-{{skip+tableData.length}} of {{data.length}} <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoPrevious()" ng-disabled="currentPage <= 1"><icon-arrow-left></icon-arrow-left></button> <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoNext()" ng-disabled="currentPage >= totalPages"><icon-arrow-right></icon-arrow-right></button></th></tr></tfoot><tbody><tr ng-repeat="row in tableData | orderBy:orderbyField : reverseSort track by $index"><td ng-repeat="(key,value) in row">{{value}}</td></tr></tbody></table>',
+        template:'<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width:100%"><thead><tr><th ng-click="orderbyCol(key)" ng-repeat="(key,value) in data[0]">{{key}} <span ng-show="canShowThisColSortIcon(key)"><span ng-show="!reverseSort"><icon-arrow-upward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-upward></span> <span ng-show="reverseSort"><icon-arrow-downward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-downward></span></span></th></tr></thead><tfoot><tr><th colspan="100%" style="text-align:right"><div style="float:left">Page :<select ng-options="page for page in pageNumbers" ng-model="currentPage" ng-change="pageChange()"></select></div>{{skip +1}}-{{skip+tableData.length}} of {{data.length}} <button rsat-Button-icon ng-click="gotoPrevious()" ng-disabled="currentPage <= 1"><icon-arrow-left></icon-arrow-left></button> <button rsat-Button-icon ng-click="gotoNext()" ng-disabled="currentPage >= totalPages"><icon-arrow-right></icon-arrow-right></button></th></tr></tfoot><tbody><tr ng-repeat="row in tableData | orderBy:orderbyField : reverseSort track by $index"><td ng-repeat="(key,value) in row">{{value}}</td></tr></tbody></table>',
     }
 
 });
@@ -127,11 +130,10 @@ smTableApp.directive('smTableSp', function () {
             $scope.initTable();
 
         }],
-        template:'<table class="rsat-data-table" style="width:100%"><thead><tr><th ng-click="orderbyCol(key)" ng-repeat="(key,value) in data[0]">{{key}} <span ng-show="canShowThisColSortIcon(key)"><span ng-show="!reverseSort"><icon-arrow-upward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-upward></span> <span ng-show="reverseSort"><icon-arrow-downward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-downward></span></span></th></tr></thead><tfoot><tr><th colspan="100%" style="text-align:right"><div style="float:left">Page :<select ng-options="page for page in pageNumbers" ng-model="currentPage" ng-change="pageChange()"></select></div>{{skip +1}}-{{skip+data.length}} of {{total}} <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoPrevious()" ng-disabled="skip <= 0"><icon-arrow-left></icon-arrow-left></button> <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="gotoNext()" ng-disabled="(skip+data.length) > total"><icon-arrow-right></icon-arrow-right></button></th></tr></tfoot><tbody><tr ng-repeat="row in data | orderBy:orderbyField : reverseSort track by $index"><td ng-repeat="(key,value) in row">{{value}}</td></tr></tbody></table>'
+        template:'<table class="mdl-data-table mdl-shadow--2dp" style="width:100%"><thead><tr><th ng-click="orderbyCol(key)" ng-repeat="(key,value) in data[0]">{{key}} <span ng-show="canShowThisColSortIcon(key)"><span ng-show="!reverseSort"><icon-arrow-upward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-upward></span> <span ng-show="reverseSort"><icon-arrow-downward size="12px" color="rgba(0,0,0,0.54)"></icon-arrow-downward></span></span></th></tr></thead><tfoot><tr><th colspan="100%" style="text-align:right"><div style="float:left">Page :<select ng-options="page for page in pageNumbers" ng-model="currentPage" ng-change="pageChange()"></select></div>{{skip +1}}-{{skip+data.length}} of {{total}} <button rsat-Button-icon ng-click="gotoPrevious()" ng-disabled="skip <= 0"><icon-arrow-left></icon-arrow-left></button> <button rsat-Button-icon ng-click="gotoNext()" ng-disabled="(skip+data.length) > total"><icon-arrow-right></icon-arrow-right></button></th></tr></tfoot><tbody><tr ng-repeat="row in data | orderBy:orderbyField : reverseSort track by $index"><td ng-repeat="(key,value) in row">{{value}}</td></tr></tbody></table>'
     }
 
 });
-
 //adding css
 var sheet = (function() {
     var styles = document.getElementsByTagName("style");

@@ -28,7 +28,9 @@ gulp.task('compress', function () {
 gulp.task('downloadDependencies',function(){
 
     var dependencies = [
-        "https://rohithsathya.github.io/SmartTable/dist/rsat.ui.icons.js"
+        "https://rohithsathya.github.io/SmartTable/dist/rsat.ui.icons.js",
+        "https://rohithsathya.github.io/rsat.ui/dist/rsat.ui.elements.js"
+
     ];
     for(var i=0;i<dependencies.length;i++){
         download(dependencies[i]).pipe(gulp.dest("./dist"));
