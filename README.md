@@ -54,10 +54,11 @@ This component is used when you have all the table data in advance, pagination a
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <link rel="styleSheet" href="../dist/rsat.ui.elements.min.css"/>
-    <script src="../dist/rsat.ui.elements.min.js"></script>
-    <script src="../dist/rsat.ui.icons.js"></script>
-    <script src="../dist/rsat.table.min.js"></script>
+    <link rel="styleSheet" href="https://rohithsathya.github.io/rsatTable/dist/rsat.ui.elements.min.css"/>
+    <script src="https://rohithsathya.github.io/rsatTable/dist/rsat.ui.elements.min.js"></script>
+    <script src="https://rohithsathya.github.io/rsatTable/dist/rsat.ui.icons.js"></script>
+    <script src="https://rohithsathya.github.io/rsatTable/dist/rsat.table.min.js"></script>
+    
     <script>
         var app = angular.module('myApp', ['rsat.table']);
         app.controller('myController', function ($scope) {
@@ -111,10 +112,11 @@ This component is used when the pagination is done at the server and at any give
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <link rel="styleSheet" href="../dist/rsat.ui.elements.min.css"/>
-    <script src="../dist/rsat.ui.elements.min.js"></script>
-    <script src="../dist/rsat.ui.icons.js"></script>
-    <script src="../dist/rsat.table.min.js"></script>
+    <link rel="styleSheet" href="https://rohithsathya.github.io/rsatTable/dist/rsat.ui.elements.min.css"/>
+    <script src="https://rohithsathya.github.io/rsatTable/dist/rsat.ui.elements.min.js"></script>
+    <script src="https://rohithsathya.github.io/rsatTable/dist/rsat.ui.icons.js"></script>
+    <script src="https://rohithsathya.github.io/rsatTable/dist/rsat.table.min.js"></script>
+    
     <script>
         var app = angular.module('myApp', ['rsat.table']);
         app.controller('myController', function ($scope) {
