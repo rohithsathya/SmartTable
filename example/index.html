@@ -3,11 +3,13 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <link rel="styleSheet" href="../dist/rsat.ui.elements.min.css"/>
+    <script src="../dist/rsat.ui.elements.min.js"></script>
     <script src="../dist/rsat.ui.icons.js"></script>
-    <script src="../dist/rsat.ui.smTable.min.js"></script>
-    <script src="../dist/rsat.ui.elements.js"></script>
+    <script src="../dist/rsat.table.min.js"></script>
     <script>
-        var app = angular.module('myApp', ['rsat.ui']);
+        var app = angular.module('myApp', ['rsat.table']);
         app.controller('myController', function ($scope) {
             $scope.allData = [
                 { name: 'Person1', company: 'Edgeverve', role: 'MTS' },
@@ -46,14 +48,14 @@
     
     <div style="padding:10px;margin:auto">
         <h3>Table with client side pagination</h3>
-        <sm-table-cp data="allData" limit="3" sortable="true"></sm-table-cp>
+        <rsat-table-cp data="allData" limit="3" sortable="true"></rsat-table-cp>
          
 
     </div>
     <div style="padding:10px;margin:auto">
         <h3>Table with Server side pagination</h3>
       
-         <sm-table-sp data="serverData" 
+         <rsat-table-sp data="serverData" 
                      limit="3" 
                      skip="0" 
                      total="9" 
@@ -61,7 +63,7 @@
                      onNext="gotoNext()"
                      onprev="gotoPrev()"
                      onPageChange="gotoSpecificPage(pageNo)" >
-        </sm-table-sp>
+        </rsat-table-sp>
 
     </div>
 

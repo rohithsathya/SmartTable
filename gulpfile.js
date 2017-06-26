@@ -8,7 +8,8 @@ gulp.task('js:build', function () {
         .pipe(embedTemplates())
         .pipe(minify({
             ext: {
-                min: '.min.js'
+                min: '.min.js',
+                noSource:true,
             }
         }))
         .pipe(gulp.dest('./dist'));
@@ -29,7 +30,8 @@ gulp.task('downloadDependencies',function(){
 
     var dependencies = [
         "https://rohithsathya.github.io/SmartTable/dist/rsat.ui.icons.js",
-        "https://rohithsathya.github.io/rsat.ui/dist/rsat.ui.elements.js"
+        "https://rohithsathya.github.io/rsat.ui/dist/rsat.ui.elements.min.js",
+        "https://rohithsathya.github.io/rsat.ui/dist/rsat.ui.elements.min.css"
 
     ];
     for(var i=0;i<dependencies.length;i++){

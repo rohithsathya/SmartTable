@@ -1,42 +1,43 @@
-# SmTable
-A SmTable Component for Angular js applications, with automatic pagination and column sorting. It is very simple and minimalistic in design, all you have to do is just give the data and html table with material design theme will magically appear in your application.
+# rsat.table
+rsat.table is a smart material design table component for Angular js applications, with automatic pagination and column sorting. It is very simple and minimalistic in design, all you have to do is just give the data and html table with material design theme will magically appear in your application.
 It has support for both client side and server side pagination.
 
-Live Demo. [here](https://rohithsathya.github.io/SmartTable/example/)
+Live Demo. [here](https://rohithsathya.github.io/rsat.ui/example/)
 
 Example : Complete example App Located at example folder
 ## Dependencies
 * Angular Js
-* rsat Icons
-* Material design light - A material design css library by google
+* [rsat Icons](https://github.com/rohithsathya/icons)
+* [rsat ui](https://rohithsathya.github.io/rsat.ui/)
 
 ## Installation
 Installation of smart table is very easy as it does not depends on lots of modules, it is simple and stright forward.Please follow the ssteps below to get started
-1. Add mdl css lib into your application
+1. Add rsat.ui elements lib into your application
      ```html
-       <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+       <link rel="styleSheet" href="../dist/rsat.ui.elements.min.css"/>
+       <script src="../dist/rsat.ui.elements.min.js"></script>
     ```
 2. Add refrence to rsat.ui.icons.js and rsat.ui.smTable.js files present in the "dist" folder
     ```html
         <script src="../dist/rsat.ui.icons.js"></script>
-        <script src="../dist/rsat.ui.smTable.js"></script>
+        <script src="../dist/rsat.table.js"></script>
     ```
     p.s. icons and smTable should be added in the same order. i.e. rsat.ui.icons.js first followed by rsat.ui.smTable.js
 3. Add Module depedency of "rsat.ui" to your angularjs application
     ```javascript
-    var app = angular.module('myApp', ['rsat.ui']);
+    var app = angular.module('myApp', ['rsat.table']);
     ```
 
     Thats it..:), you have successfully added rsat smTable into your angularjs project.
 
 
 ## Using SmTable  
-smTable has two bulit in components
-* smTable with client side pagination (sm-table-cp)
-* smTable with server side pagination (sm-table-sp)
+rsat.table has two bulit in components
+* rsat.table with client side pagination (sm-table-cp)
+* rsat.table with server side pagination (sm-table-sp)
         
 
-### smTable with client side pagination (sm-table-cp)
+### rsat.table with client side pagination (sm-table-cp)
 This component is used when you have all the table data in advance, pagination and navigation between the pages is automatically handled by the component. It has following options
 
 #### options
@@ -53,11 +54,12 @@ This component is used when you have all the table data in advance, pagination a
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="styleSheet" href="../dist/rsat.ui.elements.min.css"/>
+    <script src="../dist/rsat.ui.elements.min.js"></script>
     <script src="../dist/rsat.ui.icons.js"></script>
-    <script src="../dist/rsat.ui.smTable.js"></script>
+    <script src="../dist/rsat.table.min.js"></script>
     <script>
-        var app = angular.module('myApp', ['rsat.ui']);
+        var app = angular.module('myApp', ['rsat.table']);
         app.controller('myController', function ($scope) {
             $scope.allData = [
                 { name: 'Person1', company: 'Edgeverve', role: 'MTS' },
@@ -78,7 +80,7 @@ This component is used when you have all the table data in advance, pagination a
 <body>
 
     <div class="container" ng-app="myApp" ng-controller="myController">
-        <sm-table-cp data="allData" limit="3" sortable="true"></sm-table-cp>
+        <rsat-table-cp data="allData" limit="3" sortable="true"></rsat-table-cp>
     </div>
 
 </body>
@@ -86,7 +88,7 @@ This component is used when you have all the table data in advance, pagination a
 </html>
 ```
 
-### smTable with server side pagination (sm-table-sp)
+### rsat.table with server side pagination (sm-table-sp)
 This component is used when the pagination is done at the server and at any given point in time you will have access to only the current page's data. It has following options
 
 #### options
@@ -109,11 +111,12 @@ This component is used when the pagination is done at the server and at any give
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="styleSheet" href="../dist/rsat.ui.elements.min.css"/>
+    <script src="../dist/rsat.ui.elements.min.js"></script>
     <script src="../dist/rsat.ui.icons.js"></script>
-    <script src="../dist/rsat.ui.smTable.js"></script>
+    <script src="../dist/rsat.table.min.js"></script>
     <script>
-        var app = angular.module('myApp', ['rsat.ui']);
+        var app = angular.module('myApp', ['rsat.table']);
         app.controller('myController', function ($scope) {
             $scope.serverData = [
                 { name: 'Person1', company: 'Edgeverve', role: 'MTS' },
@@ -150,8 +153,8 @@ This component is used when the pagination is done at the server and at any give
 
 <body>
     <div class="container" ng-app="myApp" ng-controller="myController">
-        <sm-table-sp data="serverData" limit="3" skip="0" total="9" sortable="true" onNext="gotoNext()" onprev="gotoPrev()" onPageChange="gotoSpecificPage(pageNo)">
-        </sm-table-sp>
+        <rsat-table-sp data="serverData" limit="3" skip="0" total="9" sortable="true" onNext="gotoNext()" onprev="gotoPrev()" onPageChange="gotoSpecificPage(pageNo)">
+        </rsat-table-sp>
     </div>
 
 </body>
