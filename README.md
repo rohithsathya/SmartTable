@@ -2,7 +2,7 @@
 rsat.table is a smart material design table component for Angular js applications, with automatic pagination and column sorting. It is very simple and minimalistic in design, all you have to do is just give the data and html table with material design theme will magically appear in your application.
 It has support for both client side and server side pagination.
 
-Live Demo. [here](https://rohithsathya.github.io/rsat.ui/example/)
+Live Demo. [here](https://rohithsathya.github.io/rsatTable/example/)
 
 Example : Complete example App is located at example folder
 ## Dependencies
@@ -23,7 +23,7 @@ Installation of rsat table is very easy as it does not depends on lots of module
         <script src="dist/rsat.table.js"></script>
     ```
     Note: please make sure to include rsat.ui.elments and rsat.ui.icons before loading rsat.table.
-3. Add Module depedency of "rsat.ui" to your angularjs application
+3. Add Module depedency of "rsat.table" to your angularjs application
     ```javascript
     var app = angular.module('myApp', ['rsat.table']);
     ```
