@@ -4,40 +4,40 @@ It has support for both client side and server side pagination.
 
 Live Demo. [here](https://rohithsathya.github.io/rsat.ui/example/)
 
-Example : Complete example App Located at example folder
+Example : Complete example App is located at example folder
 ## Dependencies
 * Angular Js
 * [rsat Icons](https://github.com/rohithsathya/icons)
 * [rsat ui](https://rohithsathya.github.io/rsat.ui/)
 
 ## Installation
-Installation of smart table is very easy as it does not depends on lots of modules, it is simple and stright forward.Please follow the ssteps below to get started
-1. Add rsat.ui elements lib into your application
+Installation of rsat table is very easy as it does not depends on lots of modules, it is simple and stright forward.Please follow the steps below to get started
+1. Add rsat.ui elements library(included in "dist" folder) into your application
      ```html
-       <link rel="styleSheet" href="../dist/rsat.ui.elements.min.css"/>
-       <script src="../dist/rsat.ui.elements.min.js"></script>
+       <link rel="styleSheet" href="dist/rsat.ui.elements.min.css"/>
+       <script src="dist/rsat.ui.elements.min.js"></script>
     ```
 2. Add refrence to rsat.ui.icons.js and rsat.ui.smTable.js files present in the "dist" folder
     ```html
-        <script src="../dist/rsat.ui.icons.js"></script>
-        <script src="../dist/rsat.table.js"></script>
+        <script src="dist/rsat.ui.icons.js"></script>
+        <script src="dist/rsat.table.js"></script>
     ```
-    p.s. icons and smTable should be added in the same order. i.e. rsat.ui.icons.js first followed by rsat.ui.smTable.js
+    Note: please make sure to include rsat.ui.elments and rsat.ui.icons before loading rsat.table.
 3. Add Module depedency of "rsat.ui" to your angularjs application
     ```javascript
     var app = angular.module('myApp', ['rsat.table']);
     ```
 
-    Thats it..:), you have successfully added rsat smTable into your angularjs project.
+    Thats it..:), you have successfully added rsat.table into your angularjs project.
 
 
-## Using SmTable  
+## Using rsat.table  
 rsat.table has two bulit in components
-* rsat.table with client side pagination (sm-table-cp)
-* rsat.table with server side pagination (sm-table-sp)
+* rsat.table with client side pagination (rsat-table-cp)
+* rsat.table with server side pagination (rsat-table-sp)
         
 
-### rsat.table with client side pagination (sm-table-cp)
+### rsat.table with client side pagination (rsat-table-cp)
 This component is used when you have all the table data in advance, pagination and navigation between the pages is automatically handled by the component. It has following options
 
 #### options
@@ -88,7 +88,7 @@ This component is used when you have all the table data in advance, pagination a
 </html>
 ```
 
-### rsat.table with server side pagination (sm-table-sp)
+### rsat.table with server side pagination (rsat-table-sp)
 This component is used when the pagination is done at the server and at any given point in time you will have access to only the current page's data. It has following options
 
 #### options
